@@ -1,0 +1,1 @@
+# Coin-switch-bot
