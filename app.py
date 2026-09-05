@@ -35,15 +35,15 @@ def webhook():
         side = "SELL" if "SELL" in raw_side else "BUY"
 
         payload = {
-            "exchange": str(data.get("exchange", "cs")),
-            "symbol": str(data.get("symbol", "BTC/USDT")),
+            "exchange": "EXCHANGE_2",
+            "symbol": str(data.get("symbol", "BTCUSDT")),
             "margin_amount": str(data.get("margin_amount", "1000")),
             "leverage": int(data.get("leverage", 25)),
             "side": side,
-            "margin_currency": str(data.get("margin_currency", "INR")),
+            "margin_currency": "INR",
             "take_profit_percentage": float(data.get("take_profit_percentage", 25.0)),
             "stop_loss_percentage": float(data.get("stop_loss_percentage", 25.0)),
-            "order_type": str(data.get("order_type", "MARKET"))
+            "order_type": "MARKET"
         }
 
         epoch_str = str(int(time.time() * 1000))
@@ -68,4 +68,3 @@ def webhook():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-  
